@@ -1,7 +1,7 @@
 
 import React, { forwardRef } from 'react';
 import { TaskData, TASK_OPTIONS } from '../types';
-import { Cpu, ShieldAlert, User, Zap, CircleDollarSign, Fingerprint, Activity } from 'lucide-react';
+import { Cpu, CircleDollarSign, Fingerprint, ShieldCheck, Zap, Activity, Lock } from 'lucide-react';
 
 interface TaskDocumentProps {
   data: TaskData;
@@ -21,179 +21,167 @@ export const TaskDocument = forwardRef<HTMLDivElement, TaskDocumentProps>(({ dat
   return (
     <div
       ref={ref}
-      className="relative w-[760px] h-[1074px] bg-[#020617] overflow-hidden shadow-2xl flex flex-col"
+      className="relative w-[760px] h-[1074px] bg-[#020617] overflow-hidden flex flex-col p-14 text-white shadow-2xl"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
-      {/* Background Tech Mesh */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" 
-           style={{ backgroundImage: 'radial-gradient(#1e293b 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
-      
-      {/* Glow Effects */}
-      <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-emerald-600/10 blur-[120px] rounded-full"></div>
+      {/* Background Subtle Tech Detail */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
 
-      {/* Header Area - Futuristic HUD Style */}
-      <div className="relative z-10 w-full pt-16 px-12 flex justify-between items-end">
-        <div className="flex flex-col items-start">
-          <div className="flex items-center gap-4 mb-2">
-            <div className="p-2 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-              <Cpu className="text-blue-400" size={32} />
-            </div>
-            <div className="h-px w-24 bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+      {/* Header Section - Identical to Reference */}
+      <div className="relative z-10 flex justify-between items-start mb-12">
+        <div className="flex flex-col">
+          <div className="flex items-center gap-4 mb-4">
+             <div className="p-2.5 border border-blue-500/30 rounded-xl bg-blue-500/5 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+                <Cpu size={28} className="text-blue-400" />
+             </div>
+             <div className="h-px w-24 bg-gradient-to-r from-blue-500/50 to-transparent"></div>
           </div>
-          <span className="text-white text-[12px] font-black tracking-[0.8em] uppercase italic opacity-80">GIORGIO ARMANI</span>
-          <span className="text-blue-500 text-[9px] font-mono tracking-widest mt-1">SECURE PROTOCOL v8.4.2</span>
+          <h2 className="text-[24px] font-black tracking-[0.4em] uppercase leading-none mb-1 text-white/90">GIORGIO ARMANI</h2>
+          <span className="text-[10px] font-mono tracking-widest text-blue-500/60 uppercase font-bold">SECURE PROTOCOL v8.4.2</span>
         </div>
 
-        <div className="text-right">
-          <div className="flex items-center justify-end gap-2 text-blue-400 mb-1">
-             <Activity size={14} className="animate-pulse" />
-             <span className="text-[10px] font-mono tracking-tighter uppercase">System Online</span>
+        <div className="flex flex-col items-end">
+          <div className="flex items-center gap-2 text-[10px] font-black text-blue-400/80 mb-2">
+            <Activity size={12} className="animate-pulse" />
+            <span className="tracking-widest uppercase">SYSTEM ONLINE</span>
           </div>
-          <h1 className="text-white text-[56px] font-black tracking-tighter leading-none uppercase italic italic-glow">
-            TASK <span className="text-blue-500">INTEL</span>
+          <h1 className="text-[68px] font-black italic leading-none tracking-tighter uppercase">
+            TASK <span className="text-blue-500 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]">INTEL</span>
           </h1>
         </div>
       </div>
 
-      {/* Vertical Side Markers */}
-      <div className="absolute left-6 top-1/4 bottom-1/4 flex flex-col justify-between items-center opacity-40">
-        <span className="text-white text-[9px] font-mono vertical-text transform -rotate-180">LAT 45.4642 N</span>
-        <div className="w-px flex-1 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent my-4"></div>
-        <span className="text-white text-[9px] font-mono vertical-text transform -rotate-180">LON 9.1900 E</span>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="relative z-10 mx-16 mt-12 flex flex-col flex-1 pb-16">
-        
-        {/* Central Confirmation Card - Glassmorphism */}
-        <div className="relative group mb-10">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-[32px] blur opacity-50"></div>
-          <div className="relative bg-[#0f172a]/80 backdrop-blur-xl border border-white/5 rounded-[30px] p-8 overflow-hidden">
-            <div className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-3">
-                <ShieldAlert className="text-blue-400" size={20} />
-                <h2 className="text-white font-black text-xs uppercase tracking-[0.3em]">CONFIRMATION PROTOCOL</h2>
-              </div>
-              <div className="text-blue-500/40 font-mono text-[9px]">HASH: 8f42a1...</div>
-            </div>
-
-            <div className="space-y-4">
-              {[
-                "Detail Tugas ini merupakan bagian yang tidak terpisahkan dari perjanjian antara Pengguna dan Pihak Giorge Armani Sistem.",
-                "Setiap dana yang dikirim oleh Pengguna kepada Pihak Sistem akan secara otomatis dikonversi menjadi Saldo Akun Kerja milik Pengguna.",
-                "Seluruh proses pelaksanaan tugas dilaksanakan sesuai dengan prosedur dan ketentuan yang berlaku pada Sistem Giorge Armani.",
-                "Dokumen ini berlaku sebagai bukti sah persetujuan antara Pengguna dan Pihak Sistem Giorgio Armani tanpa memerlukan tanda tangan tertulis."
-              ].map((text, i) => (
-                <div key={i} className="flex gap-4 items-start group">
-                  <div className="mt-1.5 w-1 h-1 rounded-full bg-blue-500 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-zinc-400 text-[12px] leading-relaxed font-medium transition-colors group-hover:text-white">{text}</p>
-                </div>
-              ))}
-            </div>
-            
-            {/* Corner Decorative Elements */}
-            <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-[30px]"></div>
-            <div className="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-blue-500/30 rounded-bl-[30px]"></div>
+      {/* Confirmation Protocol Card - Broad & Clean */}
+      <div className="relative z-10 bg-[#0f172a]/40 border border-blue-500/10 rounded-[36px] p-10 mb-8 backdrop-blur-sm overflow-hidden">
+        <div className="flex justify-between items-center mb-10">
+          <div className="flex items-center gap-4">
+            <ShieldCheck className="text-blue-500" size={20} />
+            <h3 className="text-[14px] font-black tracking-[0.3em] uppercase text-white/80">CONFIRMATION PROTOCOL</h3>
           </div>
+          <span className="text-[10px] font-mono text-blue-500/20">HASH: 8f42a1...</span>
         </div>
 
-        {/* Data Grid */}
-        <div className="grid grid-cols-2 gap-8">
+        <div className="space-y-6">
+          {[
+            "Detail Tugas ini merupakan bagian yang tidak terpisahkan dari perjanjian antara Pengguna dan Pihak Giorge Armani Sistem.",
+            "Setiap dana yang dikirim oleh Pengguna kepada Pihak Sistem akan secara otomatis dikonversi menjadi Saldo Akun Kerja milik Pengguna.",
+            "Seluruh proses pelaksanaan tugas dilaksanakan sesuai dengan prosedur dan ketentuan yang berlaku pada Sistem Giorge Armani.",
+            "Dokumen ini berlaku sebagai bukti sah persetujuan antara Pengguna dan Pihak Sistem Giorgio Armani tanpa memerlukan tanda tangan tertulis."
+          ].map((text, i) => (
+            <div key={i} className="flex gap-6 items-start">
+              <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500/40"></div>
+              <p className="text-[13.5px] text-zinc-400 leading-relaxed font-medium">{text}</p>
+            </div>
+          ))}
+        </div>
+        
+        {/* Deco lines in corners */}
+        <div className="absolute top-0 right-0 w-24 h-24 border-t border-r border-blue-500/10 rounded-tr-[36px]"></div>
+        <div className="absolute left-[-20px] top-[25%] w-10 h-20 text-[10px] font-mono text-zinc-800 rotate-180 flex items-center justify-center tracking-tighter" style={{ writingMode: 'vertical-rl' }}>
+           LAT 45.4642 N
+        </div>
+      </div>
+
+      {/* 2-Column Main Info Grid */}
+      <div className="relative z-10 grid grid-cols-2 gap-8 mb-8">
+        
+        {/* Panel Left: Biometric Account */}
+        <div className="bg-[#0b1120] border border-white/5 rounded-[36px] p-10 flex flex-col justify-between min-h-[280px] shadow-xl">
+          <div className="flex items-center gap-4 mb-8">
+            <Fingerprint className="text-blue-500" size={22} />
+            <h3 className="text-[14px] font-black tracking-[0.25em] uppercase text-white/70">BIOMETRIC ACCOUNT</h3>
+          </div>
           
-          {/* Account Panel */}
-          <div className="bg-[#0f172a]/60 border border-white/5 rounded-[24px] p-6 relative overflow-hidden group">
-            <div className="flex items-center gap-3 mb-6">
-              <Fingerprint className="text-blue-500" size={18} />
-              <span className="text-white font-black text-[10px] uppercase tracking-[0.2em] opacity-80">BIOMETRIC ACCOUNT</span>
+          <div className="space-y-8">
+            <div className="flex justify-between items-end border-b border-white/5 pb-5">
+              <span className="text-zinc-500 text-[11px] font-black uppercase tracking-widest">ID AKUN</span>
+              <span className="text-white font-mono text-[19px] font-black tracking-wider">{data.idAkun}</span>
             </div>
-            
-            <div className="space-y-6">
-              <div className="flex justify-between items-end border-b border-white/5 pb-2">
-                <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">ID AKUN</span>
-                <span className="text-white font-mono text-[15px] font-black tracking-widest">{data.idAkun}</span>
-              </div>
-              <div className="flex justify-between items-end border-b border-white/5 pb-2">
-                <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">VALUE</span>
-                <span className="text-blue-400 text-[18px] font-black">{formatCurrency(data.hargaProduk)}</span>
-              </div>
-              <div className="flex justify-between items-end">
-                <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">YIELD</span>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-emerald-400 text-[24px] font-black">{data.komisi}%</span>
-                  <span className="text-[10px] text-emerald-500/50 font-bold">PROFIT</span>
-                </div>
+            <div className="flex justify-between items-end border-b border-white/5 pb-5">
+              <span className="text-zinc-500 text-[11px] font-black uppercase tracking-widest">VALUE</span>
+              <span className="text-blue-400 font-black text-[24px] tracking-tight">{formatCurrency(data.hargaProduk)}</span>
+            </div>
+            <div className="flex justify-between items-center pt-2">
+              <span className="text-zinc-500 text-[11px] font-black uppercase tracking-widest">YIELD</span>
+              <div className="flex items-center gap-4">
+                <span className="text-emerald-400 font-black text-[30px] leading-none drop-shadow-[0_0_15px_rgba(52,211,153,0.3)]">{data.komisi}%</span>
+                <span className="text-emerald-500/40 text-[10px] font-black uppercase tracking-widest">PROFIT</span>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Operation Log */}
-          <div className="bg-[#0f172a]/60 border border-white/5 rounded-[24px] p-6 relative overflow-hidden flex flex-col">
-            <div className="flex items-center gap-3 mb-4">
-              <Zap className="text-yellow-500" size={18} />
-              <span className="text-white font-black text-[10px] uppercase tracking-[0.2em] opacity-80">ACTIVE DEPLOYMENT</span>
-            </div>
-            
-            <div className="flex-1 flex flex-col justify-center items-center text-center space-y-3">
-              <div className="w-full bg-blue-500/5 border border-blue-500/20 rounded-xl p-4">
-                <span className="block text-zinc-500 text-[9px] font-black uppercase mb-1 tracking-widest">PROTOCOL ACTIVE</span>
-                <h4 className="text-white text-md font-black uppercase tracking-tighter">
-                  {selectedTask?.label.toUpperCase() || "UNIT-01"}
+        {/* Panel Right: Active Deployment */}
+        <div className="bg-[#0b1120] border border-white/5 rounded-[36px] p-10 flex flex-col justify-between min-h-[280px] text-center shadow-xl">
+          <div className="flex items-center gap-4 mb-8 text-left">
+            <Zap className="text-yellow-500" size={22} />
+            <h3 className="text-[14px] font-black tracking-[0.25em] uppercase text-white/70">ACTIVE DEPLOYMENT</h3>
+          </div>
+
+          <div className="flex-1 flex flex-col justify-center gap-6 px-4">
+             <div className="bg-[#0f172a] border border-blue-500/20 rounded-[24px] py-8 px-6 shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]">
+                <span className="text-zinc-500 text-[10px] font-black tracking-[0.3em] uppercase block mb-4">PROTOCOL ACTIVE</span>
+                <h4 className="text-white text-[20px] font-black tracking-tighter uppercase leading-tight italic">
+                   {selectedTask?.desc || "1 PESANAN"}
                 </h4>
-              </div>
-              <p className="text-zinc-500 text-[11px] font-medium leading-tight">
-                Sistem memproses unit tugas secara otomatis melalui jaringan pusat.
-              </p>
-            </div>
-            
-            <div className="mt-4 flex items-center justify-center gap-1.5">
-               <div className="w-1 h-1 bg-emerald-500 rounded-full"></div>
-               <span className="text-[8px] font-mono text-zinc-600 uppercase">Latency: 24ms</span>
-            </div>
+             </div>
+             <p className="text-zinc-500 text-[11.5px] leading-relaxed font-medium">
+                Sistem memproses unit tugas secara otomatis melalui jaringan pusat Giorgio Armani.
+             </p>
           </div>
 
-          {/* Warning Panels - High Visibility */}
-          <div className="bg-gradient-to-br from-blue-900/20 to-black/40 border border-blue-500/20 rounded-[24px] p-6 flex flex-col justify-center text-center group transition-all hover:border-blue-500/40">
-            <span className="text-blue-400 text-[9px] font-black uppercase tracking-[0.3em] mb-2">TIME LIMITER</span>
-            <p className="text-white text-sm font-bold tracking-tight mb-1">60 MINUTE OPERATION WINDOW</p>
-            <p className="text-zinc-500 text-[10px] italic">Failure to complete will trigger auto-lockout protocol.</p>
+          <div className="pt-6 flex items-center justify-center gap-3">
+             <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)] animate-pulse"></div>
+             <span className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase font-bold">LATENCY: 24MS</span>
           </div>
-
-          <div className="bg-gradient-to-br from-emerald-900/10 to-black/40 border border-emerald-500/10 rounded-[24px] p-6 flex flex-col justify-center text-center group transition-all hover:border-emerald-500/30">
-            <span className="text-emerald-500 text-[9px] font-black uppercase tracking-[0.3em] mb-2">FINANCIAL ADVISORY</span>
-            <p className="text-white text-[11px] font-medium opacity-80 italic">
-              Verify transaction values with assigned mentor prior to initialization to ensure sync.
-            </p>
-          </div>
-
         </div>
       </div>
 
-      {/* Footer bar - Advanced HUD bar */}
-      <div className="relative z-10 w-full h-[80px] bg-black/40 backdrop-blur-md border-t border-white/5 mt-auto flex items-center justify-between px-16">
-        <div className="flex flex-col">
-          <span className="text-zinc-600 text-[8px] font-mono tracking-widest uppercase mb-1">Authenticated Documentation</span>
-          <p className="text-white text-[12px] font-black tracking-[0.5em] uppercase italic opacity-60">ARMANI S.P.A.</p>
+      {/* Bottom Information Row */}
+      <div className="relative z-10 grid grid-cols-2 gap-8">
+         {/* Time Limiter */}
+         <div className="bg-[#0f172a]/30 border border-blue-500/10 rounded-[30px] p-8 text-center flex flex-col items-center justify-center gap-2">
+            <span className="text-blue-500/50 text-[10px] font-black tracking-[0.4em] uppercase mb-1">TIME LIMITER</span>
+            <p className="text-white text-[15px] font-black uppercase tracking-widest">60 MINUTE OPERATION WINDOW</p>
+            <p className="text-zinc-600 text-[10.5px] italic font-medium">Failure to complete will trigger auto-lockout protocol.</p>
+         </div>
+
+         {/* Financial Advisory */}
+         <div className="bg-[#0f172a]/30 border border-emerald-500/10 rounded-[30px] p-8 text-center flex flex-col items-center justify-center gap-2">
+            <span className="text-emerald-500/50 text-[10px] font-black tracking-[0.4em] uppercase mb-1">FINANCIAL ADVISORY</span>
+            <p className="text-zinc-300 text-[13.5px] font-bold leading-relaxed italic px-2">
+               Verify transaction values with assigned mentor prior to initialization to ensure sync.
+            </p>
+         </div>
+      </div>
+
+      {/* Decorative location info */}
+      <div className="absolute left-[-22px] bottom-[20%] w-10 h-24 text-[10px] font-mono text-zinc-800 rotate-180 flex items-center justify-center tracking-tighter opacity-50" style={{ writingMode: 'vertical-rl' }}>
+         LON 9.1900 E
+      </div>
+
+      {/* Footer Branding - High Precision */}
+      <div className="mt-auto relative z-10 w-full flex items-end justify-between border-t border-white/5 pt-12 pb-4 px-4">
+        <div className="flex flex-col gap-2">
+           <span className="text-zinc-600 text-[10px] font-mono tracking-widest uppercase font-bold">AUTHENTICATED DOCUMENTATION</span>
+           <p className="text-white text-[20px] font-black tracking-[0.5em] italic uppercase opacity-70">ARMANI S.P.A.</p>
         </div>
-        
-        <div className="flex items-center gap-6">
-          <div className="flex flex-col items-end">
-            <span className="text-zinc-600 text-[8px] font-mono tracking-widest uppercase">ENCRYPTION</span>
-            <span className="text-blue-500 text-[10px] font-mono font-bold">AES-256 GCM</span>
-          </div>
-          <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center relative overflow-hidden">
-             <div className="absolute inset-0 bg-blue-500/5 animate-pulse"></div>
-             <CircleDollarSign size={18} className="text-blue-400" />
-          </div>
+
+        <div className="flex items-center gap-10">
+           <div className="flex flex-col items-end gap-1.5">
+              <span className="text-zinc-700 text-[9px] font-mono tracking-widest uppercase font-black">ENCRYPTION ENGINE</span>
+              <span className="text-blue-500/80 text-[12px] font-mono font-bold tracking-tighter uppercase">AES-256 GCM PROTOCOL</span>
+           </div>
+           <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-white/5 shadow-inner">
+              <CircleDollarSign size={28} className="text-blue-400" />
+           </div>
         </div>
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
         .italic-glow {
-          text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-        }
-        .vertical-text {
-          writing-mode: vertical-rl;
+          text-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
         }
       ` }} />
     </div>
